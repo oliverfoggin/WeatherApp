@@ -14,44 +14,6 @@ enum Result<T> {
     case failure(Error)
 }
 
-struct WindData {
-    enum Direction {
-        case north
-        case northEast
-        case east
-        case southEast
-        case south
-        case southWest
-        case west
-        case northWest
-    }
-    
-    let date: Date
-    let speed: Double
-    let degrees: Double
-    let direction: Direction
-    
-    init?(jsonData: [String : Any], dateStamp: Int64) {
-        guard let speed = jsonData["speed"] as? Double,
-            let degrees = jsonData["deg"] as? Double else {
-                return nil
-        }
-        
-        self.speed = speed
-        self.degrees = degrees
-        self.date = Date(timeIntervalSince1970: TimeInterval(integerLiteral: dateStamp))
-        
-        self.direction = {
-            switch degrees {
-            case -22.5..<22.5:
-                return .north
-            default:
-                return .east
-            }
-        }()
-    }
-}
-
 enum WeatherError: Error {
     case unknownError
 }

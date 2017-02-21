@@ -13,6 +13,7 @@
 		F6BBF19F1E5CD2A80060C186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBF19D1E5CD2A80060C186 /* LaunchScreen.storyboard */; };
 		F6BBF1B81E5CD5F90060C186 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF1B71E5CD5F90060C186 /* WeatherService.swift */; };
 		F6BBF1BA1E5CE1F70060C186 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF1B91E5CE1F70060C186 /* WeatherViewController.swift */; };
+		F6D4A6741E5CEF360059514E /* WindData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4A6731E5CEF360059514E /* WindData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		F6BBF1A51E5CD2A80060C186 /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BBF1B71E5CD5F90060C186 /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherService.swift; path = "Weather Service/WeatherService.swift"; sourceTree = "<group>"; };
 		F6BBF1B91E5CE1F70060C186 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		F6D4A6731E5CEF360059514E /* WindData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WindData.swift; path = "Weather Service/WindData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				F6BBF1B71E5CD5F90060C186 /* WeatherService.swift */,
+				F6D4A6731E5CEF360059514E /* WindData.swift */,
 			);
 			name = "Weather Service";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6BBF1B81E5CD5F90060C186 /* WeatherService.swift in Sources */,
+				F6D4A6741E5CEF360059514E /* WindData.swift in Sources */,
 				F6BBF1BA1E5CE1F70060C186 /* WeatherViewController.swift in Sources */,
 				F6BBF1901E5CD2A80060C186 /* AppDelegate.swift in Sources */,
 			);
@@ -404,6 +408,7 @@
 				F6BBF1B01E5CD2A80060C186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F6BBF1B11E5CD2A80060C186 /* Build configuration list for PBXNativeTarget "WeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +417,7 @@
 				F6BBF1B31E5CD2A80060C186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
