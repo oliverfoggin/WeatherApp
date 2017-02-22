@@ -21,7 +21,7 @@ struct WindData {
     }
     
     let date: Date
-    let speed: Double
+    let speed: Measurement<UnitSpeed>
     let degrees: Double
     let direction: Direction
     
@@ -31,7 +31,7 @@ struct WindData {
                 return nil
         }
         
-        self.speed = speed
+        self.speed = Measurement(value: speed, unit: .metersPerSecond)
         self.degrees = degrees
         self.date = Date(timeIntervalSince1970: TimeInterval(integerLiteral: dateStamp))
         

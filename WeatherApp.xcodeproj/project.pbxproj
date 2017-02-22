@@ -14,6 +14,8 @@
 		F6BBF1B81E5CD5F90060C186 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF1B71E5CD5F90060C186 /* WeatherService.swift */; };
 		F6BBF1BA1E5CE1F70060C186 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF1B91E5CE1F70060C186 /* WeatherViewController.swift */; };
 		F6D4A6741E5CEF360059514E /* WindData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4A6731E5CEF360059514E /* WindData.swift */; };
+		F6D4A6761E5D6A890059514E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4A6751E5D6A890059514E /* City.swift */; };
+		F6D4A6781E5D71EC0059514E /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4A6771E5D71EC0059514E /* AddCityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		F6BBF1B71E5CD5F90060C186 /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherService.swift; path = "Weather Service/WeatherService.swift"; sourceTree = "<group>"; };
 		F6BBF1B91E5CE1F70060C186 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		F6D4A6731E5CEF360059514E /* WindData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WindData.swift; path = "Weather Service/WindData.swift"; sourceTree = "<group>"; };
+		F6D4A6751E5D6A890059514E /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = "Weather Service/City.swift"; sourceTree = "<group>"; };
+		F6D4A6771E5D71EC0059514E /* AddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 				F6BBF19D1E5CD2A80060C186 /* LaunchScreen.storyboard */,
 				F6BBF1A01E5CD2A80060C186 /* Info.plist */,
 				F6BBF1B91E5CE1F70060C186 /* WeatherViewController.swift */,
+				F6D4A6771E5D71EC0059514E /* AddCityViewController.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			children = (
 				F6BBF1B71E5CD5F90060C186 /* WeatherService.swift */,
 				F6D4A6731E5CEF360059514E /* WindData.swift */,
+				F6D4A6751E5D6A890059514E /* City.swift */,
 			);
 			name = "Weather Service";
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6BBF1B81E5CD5F90060C186 /* WeatherService.swift in Sources */,
+				F6D4A6781E5D71EC0059514E /* AddCityViewController.swift in Sources */,
+				F6D4A6761E5D6A890059514E /* City.swift in Sources */,
 				F6D4A6741E5CEF360059514E /* WindData.swift in Sources */,
 				F6BBF1BA1E5CE1F70060C186 /* WeatherViewController.swift in Sources */,
 				F6BBF1901E5CD2A80060C186 /* AppDelegate.swift in Sources */,
