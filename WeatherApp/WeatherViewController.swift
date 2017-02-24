@@ -17,6 +17,8 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,6 +52,9 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.textLabel?.text = city.name
         cell.detailTextLabel?.text = city.country
+        cell.textLabel?.textColor = .darkGray
+        cell.detailTextLabel?.textColor = .darkGray
+        cell.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         
         return cell
     }

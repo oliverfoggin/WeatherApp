@@ -31,6 +31,7 @@ class CityViewController: UIViewController {
         t.delegate = self
         t.register(ForecastTableViewCell.self, forCellReuseIdentifier: "ForecastCell")
         t.allowsSelection = false
+        t.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         return t
     }()
     
@@ -167,6 +168,8 @@ class ForecastTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         
         let stackView: UIStackView = {
             let s = UIStackView(arrangedSubviews: [vaneImageView, directionLabel, dateLabel])
