@@ -39,24 +39,12 @@ extension AddCityViewController: UISearchBarDelegate {
             return
         }
         
-        let geoCoder = CLGeocoder()
-        
-        geoCoder.geocodeAddressString(searchText) {
-            places, error in
-            guard let places = places else {
-                return
-            }
-            
-            self.cities = places.flatMap {
-                placemark in
-                
-                guard let name = placemark.addressDictionary?["City"] as? String,
-                    let country = placemark.country,
-                    let coordinate = placemark.location?.coordinate else {
-                        return nil
-                }
-                
-                return City(name: name, country: country, coordinate: coordinate)
+        CityService.searchForCities(searchText: searchText) { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let cities):
+                self.cities = cities
             }
         }
     }

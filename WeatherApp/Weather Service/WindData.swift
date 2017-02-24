@@ -18,6 +18,27 @@ struct WindData {
         case southWest
         case west
         case northWest
+        
+        var shortDescription: String {
+            switch self {
+            case .north:
+                return "N"
+            case .northEast:
+                return "NE"
+            case .east:
+                return "E"
+            case .southEast:
+                return "SE"
+            case .south:
+                return "S"
+            case .southWest:
+                return "SW"
+            case .west:
+                return "W"
+            case .northWest:
+                return "NW"
+            }
+        }
     }
     
     let date: Date

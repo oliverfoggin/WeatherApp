@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F636F7FE1E607C2D00771292 /* CityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F636F7FD1E607C2D00771292 /* CityService.swift */; };
+		F636F8011E60ACED00771292 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F636F8001E60ACED00771292 /* CityViewController.swift */; };
+		F6AF0C821E60C568006785C1 /* WeatherAppStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF0C811E60C568006785C1 /* WeatherAppStyleKit.swift */; };
 		F6BBF1901E5CD2A80060C186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF18F1E5CD2A80060C186 /* AppDelegate.swift */; };
 		F6BBF19A1E5CD2A80060C186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBF1981E5CD2A80060C186 /* Main.storyboard */; };
 		F6BBF19C1E5CD2A80060C186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BBF19B1E5CD2A80060C186 /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F636F7FD1E607C2D00771292 /* CityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityService.swift; path = "City Service/CityService.swift"; sourceTree = "<group>"; };
+		F636F8001E60ACED00771292 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		F6AF0C811E60C568006785C1 /* WeatherAppStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAppStyleKit.swift; sourceTree = "<group>"; };
 		F6BBF18C1E5CD2A80060C186 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BBF18F1E5CD2A80060C186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6BBF1991E5CD2A80060C186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F636F7FF1E607C3000771292 /* City Service */ = {
+			isa = PBXGroup;
+			children = (
+				F636F7FD1E607C2D00771292 /* CityService.swift */,
+				F6D4A6751E5D6A890059514E /* City.swift */,
+			);
+			name = "City Service";
+			sourceTree = "<group>";
+		};
 		F6BBF1831E5CD2A80060C186 = {
 			isa = PBXGroup;
 			children = (
@@ -81,14 +96,17 @@
 		F6BBF18E1E5CD2A80060C186 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F636F7FF1E607C3000771292 /* City Service */,
 				F6BBF1B61E5CD5E40060C186 /* Weather Service */,
 				F6BBF18F1E5CD2A80060C186 /* AppDelegate.swift */,
 				F6BBF1981E5CD2A80060C186 /* Main.storyboard */,
 				F6BBF19B1E5CD2A80060C186 /* Assets.xcassets */,
 				F6BBF19D1E5CD2A80060C186 /* LaunchScreen.storyboard */,
 				F6BBF1A01E5CD2A80060C186 /* Info.plist */,
+				F6AF0C811E60C568006785C1 /* WeatherAppStyleKit.swift */,
 				F6BBF1B91E5CE1F70060C186 /* WeatherViewController.swift */,
 				F6D4A6771E5D71EC0059514E /* AddCityViewController.swift */,
+				F636F8001E60ACED00771292 /* CityViewController.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -98,7 +116,6 @@
 			children = (
 				F6BBF1B71E5CD5F90060C186 /* WeatherService.swift */,
 				F6D4A6731E5CEF360059514E /* WindData.swift */,
-				F6D4A6751E5D6A890059514E /* City.swift */,
 			);
 			name = "Weather Service";
 			sourceTree = "<group>";
@@ -153,6 +170,7 @@
 				TargetAttributes = {
 					F6BBF18B1E5CD2A80060C186 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5AGJ797J4E;
 						ProvisioningStyle = Automatic;
 					};
 					F6BBF1A41E5CD2A80060C186 = {
@@ -209,9 +227,12 @@
 				F6BBF1B81E5CD5F90060C186 /* WeatherService.swift in Sources */,
 				F6D4A6781E5D71EC0059514E /* AddCityViewController.swift in Sources */,
 				F6D4A6761E5D6A890059514E /* City.swift in Sources */,
+				F636F8011E60ACED00771292 /* CityViewController.swift in Sources */,
 				F6D4A6741E5CEF360059514E /* WindData.swift in Sources */,
 				F6BBF1BA1E5CE1F70060C186 /* WeatherViewController.swift in Sources */,
+				F6AF0C821E60C568006785C1 /* WeatherAppStyleKit.swift in Sources */,
 				F6BBF1901E5CD2A80060C186 /* AppDelegate.swift in Sources */,
+				F636F7FE1E607C2D00771292 /* CityService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5AGJ797J4E;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverfoggin.WeatherApp;
@@ -361,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5AGJ797J4E;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverfoggin.WeatherApp;

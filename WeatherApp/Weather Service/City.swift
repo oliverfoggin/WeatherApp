@@ -14,6 +14,7 @@ class City {
     let country: String
     let coordinate: CLLocationCoordinate2D
     private var windData: [WindData]? = nil
+    private var currentWind: WindData? = nil
     
     init(name: String, country: String, coordinate: CLLocationCoordinate2D) {
         self.name = name
@@ -43,6 +44,18 @@ class City {
             "lat" : "\(coordinate.latitude)",
             "lon" : "\(coordinate.longitude)"
         ]
+    }
+    
+    func getCurrentWeather(completion: @escaping (WindData?) -> ()) {
+        if let currentWind = currentWind {
+            completion(currentWind)
+            return
+        }
+        
+        WeatherService.getCurrentWeather(coordinate: coordinate) { windData in
+            self.currentWind = windData
+            completion(windData)
+        }
     }
     
     func getForecast(completion: @escaping ([WindData]) -> ()) {

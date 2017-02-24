@@ -27,26 +27,52 @@ struct WeatherService {
         }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            
             self.parseForecastResult(data: data, response: response, error: error, completion: completion)
+            }.resume()
+    }
+    
+    static func getCurrentWeather(coordinate: CLLocationCoordinate2D, completion: @escaping (WindData?) -> ()) {
+        guard let url = self.currentWeatherURL(withCoordinate: coordinate) else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data,
+                let json = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                let windJSON = json["wind"] as? [String : Any],
+                let windData = WindData(jsonData: windJSON, dateStamp: Int64(Date().timeIntervalSince1970)) else {
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
+                    return
+            }
+            DispatchQueue.main.async {
+                completion(windData)
+            }
             }.resume()
     }
     
     private static func parseForecastResult(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (Result<[WindData]>) -> ()) {
         
         if let error = error {
-            completion(Result.failure(error))
+            DispatchQueue.main.async {
+                completion(Result.failure(error))
+            }
             return
         }
         
         guard let weatherJSON = getWeatherJSON(fromData: data) else {
-            completion(Result.failure(WeatherError.unknownError))
+            DispatchQueue.main.async {
+                completion(Result.failure(WeatherError.unknownError))
+            }
             return
         }
         
         let windArray = createWindArray(fromJSONArray: weatherJSON)
         
-        completion(Result.success(windArray))
+        DispatchQueue.main.async {
+            completion(Result.success(windArray))
+        }
     }
     
     private static func getWeatherJSON(fromData data: Data?) -> [[String : Any]]? {
@@ -71,12 +97,24 @@ struct WeatherService {
     }
     
     private static func forecastURL(withCooridnate coordinate: CLLocationCoordinate2D) -> URL? {
+        return apiURL(withCoordinate: coordinate, forecast: true)
+    }
+    
+    private static func currentWeatherURL(withCoordinate coordinate: CLLocationCoordinate2D) -> URL? {
+        return apiURL(withCoordinate: coordinate, forecast: false)
+    }
+    
+    private static func apiURL(withCoordinate coordinate: CLLocationCoordinate2D, forecast: Bool) -> URL? {
         guard let apiKey = apiKey else {
             return nil
         }
         
         var urlComponents = URLComponents(string: "http://api.openweathermap.org")!
-        urlComponents.path = "/data/2.5/forecast"
+        if forecast {
+            urlComponents.path = "/data/2.5/forecast"
+        } else {
+            urlComponents.path = "/data/2.5/weather"
+        }
         urlComponents.queryItems = [
             URLQueryItem(name: "lat", value: "\(coordinate.latitude)"),
             URLQueryItem(name: "lon", value: "\(coordinate.longitude)"),

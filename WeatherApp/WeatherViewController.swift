@@ -13,18 +13,10 @@ import CoreLocation
 class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var favouriteCities: [City] = []
+    var favouriteCities: [City] = CityService.loadFavouritesCities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let coord = CLLocationCoordinate2D(latitude: 54.524288, longitude: -1.55039)
-        
-        let city = City(name: "Darlington", country: "UK", coordinate: coord)
-        
-        city.getForecast { windData in
-            print(windData)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,14 +25,20 @@ class WeatherViewController: UIViewController {
             controller.selectCityAction = {
                 city in
                 self.favouriteCities.append(city)
-                print(self.favouriteCities)
+                CityService.save(favouriteCities: self.favouriteCities)
                 self.tableView.reloadData()
             }
+        }
+        
+        if let navController = segue.destination as? UINavigationController,
+            let controller = navController.topViewController as? CityViewController,
+            let indexPath = sender as? IndexPath {
+            controller.city = favouriteCities[indexPath.row]
         }
     }
 }
 
-extension WeatherViewController: UITextViewDelegate, UITableViewDataSource {
+extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favouriteCities.count
     }
@@ -54,5 +52,13 @@ extension WeatherViewController: UITextViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = city.country
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CityViewController()
+//        let navController = UINavigationController(rootViewController: controller)
+//        controller.city = favouriteCities[indexPath.row]
+//        showDetailViewController(navController, sender: nil)
+        performSegue(withIdentifier: "showCitySegue", sender: indexPath)
     }
 }
